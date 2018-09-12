@@ -1,7 +1,6 @@
 <template>
    <div>
      <h1>详情</h1>
-
      <router-link to="/detail/one">Go to 详情一</router-link>
      <router-link to="/detail/two">Go to 详情二</router-link>
      <router-view/>

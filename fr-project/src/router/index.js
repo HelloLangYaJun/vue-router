@@ -9,12 +9,11 @@ import Two from '../components/detailTwo'
 import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 Vue.use(Router)
-
 const router =new Router({
   mode: 'history',
   routes: [
     {path: '/', name: 'home', component: HelloWorld},
-    {path: '/index', name: 'Index', component: Index, props: { name: 'attrs' },meta: {title: '首页'}},
+    {path: '/index', name: 'Index', component: Index,meta: {title: '首页'}},
     {path: '/detail', name: 'Detail', component: Detail, children:[
         {path:'one', component:One},
         {path:'two', component:Two}
@@ -26,7 +25,6 @@ const router =new Router({
         title: '登陆'
       },}
   ],
-
 })
 router.beforeEach((to,from,next)=>{
   Nprogress.start()
@@ -37,6 +35,5 @@ router.beforeEach((to,from,next)=>{
 })
 router.afterEach((to,from,next)=>{
   Nprogress.done()
-  next()
 })
 export default router
