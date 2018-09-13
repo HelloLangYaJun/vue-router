@@ -10,6 +10,11 @@ var router = express.Router();
 //     'Access-Control-Allow-Headers':'content-type'
 //  })
 // })
+router.get('/', function(req, res, next) {
+  res.statusCode=200
+  res.write('成功')
+  res.end()
+});
 router.post('/', function(req, res, next) {
     // res.json(200, {
     //     'Access-Control-Allow-Origin': 'http://localhost:8080',
@@ -27,9 +32,7 @@ router.post('/', function(req, res, next) {
   res.write('账户密码不对')
   res.end()
  }
-
- 
- 
 });
+
 
 module.exports = router;

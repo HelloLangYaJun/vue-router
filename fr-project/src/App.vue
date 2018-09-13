@@ -3,9 +3,9 @@
     <img src="./assets/logo.png">
     <router-view/>
    <div>
-     <router-link :to="{name: 'Index',params:{name:'hello'}}">Go to index</router-link>
-     <router-link :to="{path: '/detail', query: {id: '18438560898'} }">Go to detail</router-link>
-     <router-link to="/login">Go to login</router-link>
+     <router-link :to="{name: 'Index',params:{name:'hello'}}">首页</router-link>
+     <router-link :to="{path: '/detail', query: {id: '18438560898'} }">详情（子路由）</router-link>
+     <router-link to="/login">登陆（跨域）</router-link>
    </div>
   </div>
 </template>

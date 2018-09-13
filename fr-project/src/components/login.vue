@@ -5,6 +5,9 @@
     <br>
     密  码：<input type="password" v-model="password" placeholder="123456">
     <br>
+    <button @click="handleSubmit3">
+      点击注册(vue-cli)
+    </button>
     <button @click="handleSubmit2">
       (代理跨域测试)
     </button>
@@ -45,6 +48,18 @@
         axios.get('http://localhost:3000/api/users',{
           // username: this.username,
           // password: this.password
+        }).then(res => {
+          console.log(res)
+          if(res.status == 200 && res.data=="成功"){
+            alert(res.data)
+            this.$router.push('/')
+          } else {
+            alert(res.data)
+          }
+        })
+      },
+      handleSubmit3(){
+        axios.get('/api/login',{
         }).then(res => {
           console.log(res)
           if(res.status == 200 && res.data=="成功"){

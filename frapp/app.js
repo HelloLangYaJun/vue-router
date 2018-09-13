@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// ---------------cors设置白名单-------------------
 app.all('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:8080");
   res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
@@ -28,9 +29,11 @@ app.all('*', function(req, res, next) {
   if(req.method=="OPTIONS") res.send(200);/*让options请求快速返回*/
   else  next();
 });
+// ---------------cors设置白名单-------------------
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', login);
+app.use('/cli', login);
 // catch 404 and forward to error handler
 app.use('/api',proxy({
   target:'http://localhost:3000',
